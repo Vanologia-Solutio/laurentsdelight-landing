@@ -3,9 +3,9 @@
 
 const en = {
   meta: {
-    title: "Laurent's Delight",
+    title: "Laurent's Delight | Homemade Baked Goods",
     description:
-      "Handmade cookies in four unforgettable flavors. Discover Laurent's Delight.",
+      "Discover handcrafted cookies, delicious brownies, and delightful homemade treats, made to bring a little sweetness to every moment.",
   },
   links: {
     flavors: "flavors",
@@ -86,7 +86,7 @@ const en = {
     quote: "A cookie should feel like a hug you can hold in one hand.",
     bio: [
       "Fallen Cristine Laurent is the hands, heart, and slightly flour-dusted soul behind Laurent's Delight. What began as late-night baking for friends and family slowly turned into a kitchen that never quite stopped smelling of butter and brown sugar.",
-      "She develops every recipe herself — testing, tasting, and tweaking until each cookie earns its place in the box. Her favorite part is still the same as day one: watching someone take the first bite.",
+      "She develops every recipe herself - testing, tasting, and tweaking until each cookie earns its place in the box. Her favorite part is still the same as day one: watching someone take the first bite.",
     ],
     sayHi: "say hi to",
     portraitAlt: "Portrait of",

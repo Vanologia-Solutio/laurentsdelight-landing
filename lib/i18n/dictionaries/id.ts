@@ -5,9 +5,9 @@ import type { Dictionary } from "./en";
 
 const id = {
   meta: {
-    title: "Laurent's Delight",
+    title: "Laurent's Delight | Homemade Baked Goods",
     description:
-      "Cookies buatan tangan dalam empat rasa yang tak terlupakan. Temukan Laurent's Delight.",
+      "Nikmati aneka cookies, brownies, dan camilan manis homemade yang dibuat dengan penuh perhatian untuk menghadirkan kebahagiaan di setiap gigitan.",
   },
   links: {
     flavors: "rasa",
