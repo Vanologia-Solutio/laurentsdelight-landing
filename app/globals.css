@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────
+   Palette — the only place raw colors live. Change a value here
+   and it updates everywhere.
+   ───────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Brand */
+  --cream: #f5ecdf; /* page background */
+  --cream-light: #fdf7ed; /* cards, pills, text on terracotta */
+  --sand: #e9dccb; /* alternate section background */
+  --honey: #d7b67b; /* hero backdrop */
+  --terracotta: #a94d2c; /* primary brand color */
+  --terracotta-dark: #81381f; /* primary hover */
+  --peach: #e7a57c; /* accent on dark backgrounds */
+  --espresso: #2b211c; /* text, dark sections */
+
+  /* Third-party */
+  --whatsapp: #25d366;
+  --whatsapp-dark: #128c4b;
 }
 
+/* Semantic tokens → Tailwind classes (bg-primary, text-accent, …).
+   Components use these names, never raw values. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-serif);
+  --font-serif: var(--font-serif);
+
+  --color-background: var(--cream);
+  --color-foreground: var(--espresso);
+  --color-surface: var(--cream-light);
+
+  --color-primary: var(--terracotta);
+  --color-primary-hover: var(--terracotta-dark);
+  --color-primary-foreground: var(--cream-light);
+
+  --color-secondary: var(--sand);
+  --color-accent: var(--peach);
+  --color-highlight: var(--honey);
+
+  --color-border: color-mix(in oklab, var(--espresso) 18%, transparent);
+  --color-ring: var(--terracotta);
+
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-dark: var(--whatsapp-dark);
+
+  /* Shadows (shadow-*) */
+  --shadow-stamp-sm: 10px 14px 0 var(--espresso); /* hard offset "stamp" */
+  --shadow-stamp: 14px 18px 0 var(--espresso);
+  --shadow-stamp-lg: 18px 24px 0 var(--espresso);
+  --shadow-header: 0 10px 30px -20px
+    color-mix(in oklab, var(--espresso) 50%, transparent);
+  --shadow-lift: 0 16px 30px -16px
+    color-mix(in oklab, var(--espresso) 60%, transparent);
+  --shadow-popover: 0 20px 40px -12px
+    color-mix(in oklab, var(--espresso) 35%, transparent);
+  --shadow-whatsapp: 0 12px 28px -8px
+    color-mix(in oklab, var(--whatsapp-dark) 60%, transparent);
+
+  --radius-lg: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchor targets clear of the fixed header */
+    scroll-padding-top: 4.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Type scale — one place to tune the whole landing page */
+@utility eyebrow {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+@utility label {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@utility display-1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 2rem + 6.5vw, 7.5rem); /* 52px → 120px */
+  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+@utility display-2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 1.75rem + 3.75vw, 4.75rem); /* 44px → 76px */
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.04em;
 }
