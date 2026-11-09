@@ -145,7 +145,7 @@ export const baker = {
   firstName: "Fallen Cristine",
   lastName: "Laurent",
   initials: "FCL",
-  photo: null as string | null, // e.g. "/baker/fallen.jpg"
+  photo: "/images/baker.webp" as string | null,
   contacts: [
     {
       id: "whatsapp",
