@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 
 import { CartDrawer } from "@/components/cart/cart-drawer";
+import { FloatingCartButton } from "@/components/cart/floating-cart-button";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -73,6 +74,7 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
               <SiteHeader />
               {children}
               <SiteFooter />
+              <FloatingCartButton />
               <FloatingWhatsApp />
               <CartDrawer />
             </MotionProvider>

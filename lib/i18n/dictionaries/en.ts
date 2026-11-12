@@ -110,6 +110,7 @@ const en = {
   },
   cart: {
     title: "Your cart",
+    view: "view cart",
     close: "Close cart",
     add: "add to cart",
     increase: "Add one",

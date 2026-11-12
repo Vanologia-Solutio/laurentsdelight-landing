@@ -113,6 +113,7 @@ const id = {
   },
   cart: {
     title: "Keranjangmu",
+    view: "lihat keranjang",
     close: "Tutup keranjang",
     add: "tambah ke keranjang",
     increase: "Tambah satu",
