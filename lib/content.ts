@@ -148,12 +148,10 @@ export const flavors: Flavor[] = [
       id: "Kakao pekat, lelehan dark chocolate, dan sejumput garam laut sebagai penyeimbang.",
     },
   },
-  // TODO: add product photos (e.g. /images/blueberry-brownies.webp) and set
-  // `image` — until then the card shows a placeholder.
   {
     id: "blueberry",
     name: "Blueberry Chocolate Brownies",
-    image: null,
+    image: "/images/blueberry-choco.webp",
     number: "05",
     short: {
       en: "Fudgy, with a fruity twist.",
@@ -167,7 +165,7 @@ export const flavors: Flavor[] = [
   {
     id: "almond",
     name: "Almond Chocolate Brownies",
-    image: null,
+    image: "/images/almond-choco.webp",
     number: "06",
     short: {
       en: "Rich, with a satisfying crunch.",
