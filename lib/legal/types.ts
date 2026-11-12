@@ -1,3 +1,5 @@
+import { contactInfo } from "@/lib/content";
+
 /** A paragraph, or a bulleted list. */
 export type LegalBlock = string | { list: string[] };
 
@@ -20,4 +22,4 @@ export type LegalDoc = {
 export const LEGAL_UPDATED = "2026-11-09";
 
 /** Contact details referenced by both documents. */
-export const LEGAL_EMAIL = "hello@laurentsdelight.com";
+export const LEGAL_EMAIL = contactInfo.email;

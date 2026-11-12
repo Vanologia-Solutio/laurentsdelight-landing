@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Reveal } from "@/components/motion/reveal";
 import { Logo } from "@/components/ui/logo";
-import { footerLinks } from "@/lib/content";
+import { contactInfo, footerLinks } from "@/lib/content";
 import { localizeHref } from "@/lib/i18n/config";
 import { getDictionary, getLocale } from "@/lib/i18n/get-dictionary";
 
@@ -52,24 +52,25 @@ export async function SiteFooter() {
             <div className="flex flex-col gap-3 text-sm text-background/80">
               <Link
                 className="inline-flex w-fit items-center gap-1.5 hover:text-accent"
-                href="tel:+63281234567"
+                href={`tel:${contactInfo.phone.tel}`}
               >
-                <RiPhoneLine className="size-4 shrink-0" /> +63 2 8123 4567
+                <RiPhoneLine className="size-4 shrink-0" />{" "}
+                {contactInfo.phone.display}
               </Link>
               <Link
                 className="inline-flex w-fit items-center gap-1.5 break-all hover:text-accent"
-                href="mailto:hello@laurentsdelight.com"
+                href={`mailto:${contactInfo.email}`}
               >
-                <RiMailLine className="size-4 shrink-0" />{" "}
-                hello@laurentsdelight.com
+                <RiMailLine className="size-4 shrink-0" /> {contactInfo.email}
               </Link>
               <Link
                 className="inline-flex w-fit items-center gap-1.5 hover:text-accent"
-                href="https://instagram.com"
+                href={contactInfo.instagram.href}
                 target="_blank"
                 rel="noreferrer"
               >
-                <RiInstagramLine className="size-4 shrink-0" /> @laurentsdelight
+                <RiInstagramLine className="size-4 shrink-0" />{" "}
+                {contactInfo.instagram.handle}
               </Link>
             </div>
           </div>

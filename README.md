@@ -109,6 +109,7 @@ Each section uses `<Section>` (`components/ui/section.tsx`): a full-width shell 
 | Flavors (name, photo, number, descriptions) | `lib/content.ts` → `flavors` |
 | Nav and footer links | `lib/content.ts` → `navLinks`, `footerLinks` |
 | WhatsApp number | `lib/content.ts` → `WHATSAPP_NUMBER` |
+| Phone, email, Instagram (footer, baker card, legal pages) | `lib/content.ts` → `contactInfo` |
 | Cart order message, minimum order, max per item | `lib/content.ts` → `buildOrderMessage`, `MIN_ORDER_QTY`, `MAX_ITEM_QTY` |
 | Baker contacts and photo | `lib/content.ts` → `baker` |
 | Footer phone / email / Instagram | `components/layout/site-footer.tsx` |

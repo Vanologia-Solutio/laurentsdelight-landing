@@ -47,6 +47,16 @@ export type Contact = {
 // WhatsApp business number (country code + number, digits only).
 export const WHATSAPP_NUMBER = "6287815198003";
 
+/** Business contact details shown in the footer, baker card and legal pages. */
+export const contactInfo = {
+  phone: { display: "+62 878 1519 8003", tel: "+6287815198003" },
+  email: "fallencristinelaurent@gmail.com",
+  instagram: {
+    handle: "@laurents.delight",
+    href: "https://instagram.com/laurents.delight",
+  },
+};
+
 export const whatsappLink = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -193,8 +203,8 @@ export const buildOrderMessage = (
     "Terima kasih!",
   ].join("\n");
 
-// TODO: placeholder photo path and contact handles — replace with Fallen's
-// real details (bio and quote live in the dictionaries).
+// Phone and Instagram come from `contactInfo`. TODO: confirm the LinkedIn URL
+// (bio and quote live in the dictionaries).
 export const baker = {
   firstName: "Fallen Cristine",
   lastName: "Laurent",
@@ -204,14 +214,14 @@ export const baker = {
     {
       id: "whatsapp",
       label: "WhatsApp",
-      handle: "+62 878 1519 8003",
+      handle: contactInfo.phone.display,
       Icon: RiWhatsappLine,
     },
     {
       id: "instagram",
       label: "Instagram",
-      handle: "@fallenlaurent",
-      href: "https://instagram.com/fallenlaurent",
+      handle: contactInfo.instagram.handle,
+      href: contactInfo.instagram.href,
       Icon: RiInstagramLine,
     },
     {
