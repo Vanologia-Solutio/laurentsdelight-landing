@@ -23,7 +23,6 @@ const id = {
   header: {
     navLabel: "Navigasi utama",
     home: "Beranda Laurent's Delight",
-    orderBox: "pesan sekotak",
     bag: "Tas belanja",
     openMenu: "Buka menu",
     closeMenu: "Tutup menu",
@@ -33,7 +32,7 @@ const id = {
     eyebrow: "batch kecil / bahagia besar",
     titleLine1: "Dibuat untuk",
     titleLine2: "dikenang.",
-    lead: "Kebahagiaan dalam setiap adonan. Empat cookies yang luar biasa enak, dibuat dengan tangan dan dikirim hangat dari dapur kami untuk orang-orang tersayangmu.",
+    lead: "Kebahagiaan dalam setiap adonan. Cookies dan brownies yang luar biasa enak, dibuat dengan tangan dan dikirim hangat dari dapur kami untuk orang-orang tersayangmu.",
     cta: "kenali rasanya",
     hours: "dipanggang setiap hari · 08.00–18.00",
     established: "sejak 2026",
@@ -43,10 +42,11 @@ const id = {
     imageAlt: "Sepiring empat cookies Laurent's Delight di atas kertas roti",
   },
   flavors: {
-    eyebrow: "empat cara untuk jatuh cinta",
+    eyebrow: "enam cara untuk jatuh cinta",
     title: "Pilih",
     accent: "favoritmu.",
     description: "Tidak ada jawaban yang salah. Hanya beragam jenis kelezatan.",
+    photoSoon: "foto segera hadir",
   },
   gallery: {
     eyebrow: "dari oven kami ke feed-mu",
@@ -110,7 +110,24 @@ const id = {
     line2: "Diantar sampai depan pintu.",
     body: "Kirim pesan lewat WhatsApp, dan kami akan memanggang sekotak cookies segar untukmu atau untuk orang tersayang.",
     cta: "pesan via WhatsApp",
-    message: "Halo Laurent's Delight! Saya ingin memesan sekotak cookies.",
+  },
+  cart: {
+    title: "Keranjangmu",
+    close: "Tutup keranjang",
+    add: "tambah ke keranjang",
+    increase: "Tambah satu",
+    decrease: "Kurangi satu",
+    remove: "Hapus",
+    quantity: "Jumlah",
+    empty: "Keranjangmu masih kosong.",
+    emptyHint: "Pilih beberapa favoritmu dan semuanya akan muncul di sini.",
+    browse: "lihat pilihan rasa",
+    total: "Total item",
+    minOrder: "Minimal pemesanan {count} item.",
+    checkout: "pesan via WhatsApp",
+    checkoutHint:
+      "Kami akan membuka WhatsApp dengan pesananmu yang siap dikirim. Harga dan pengiriman dikonfirmasi lewat chat.",
+    clear: "kosongkan keranjang",
   },
   footer: {
     tagline:
@@ -134,11 +151,8 @@ const id = {
     subtitle: "Biasanya membalas dalam satu jam",
     open: "Chat via WhatsApp",
     close: "Tutup menu WhatsApp",
+    orderLabel: "Saya ingin pesan",
     quickMessages: [
-      {
-        label: "Saya ingin pesan sekotak",
-        message: "Halo Laurent's Delight! Saya ingin memesan sekotak cookies.",
-      },
       {
         label: "Bisa kirim ke daerah saya?",
         message:

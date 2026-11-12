@@ -20,11 +20,15 @@ export async function Flavors() {
       />
       <Stagger
         gap={0.1}
-        className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-x-3 gap-y-10 sm:gap-x-4 sm:gap-y-12 lg:grid-cols-4"
       >
         {flavors.map((flavor) => (
-          <StaggerItem key={flavor.id}>
-            <FlavorCard flavor={flavor} locale={locale} />
+          <StaggerItem key={flavor.id} className="h-full">
+            <FlavorCard
+              flavor={flavor}
+              locale={locale}
+              photoSoon={t.flavors.photoSoon}
+            />
           </StaggerItem>
         ))}
       </Stagger>

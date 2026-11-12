@@ -1,10 +1,9 @@
 import { RiArrowRightUpLine } from "@remixicon/react";
 
+import { OpenCartButton } from "@/components/cart/open-cart-button";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { Section } from "@/components/ui/section";
-import { whatsappLink } from "@/lib/content";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
-import Link from "next/link";
 
 export async function Order() {
   const t = await getDictionary();
@@ -46,15 +45,13 @@ export async function Order() {
         <p className="mb-7 text-base leading-relaxed text-primary-foreground/85">
           {t.order.body}
         </p>
-        <Link
-          href={whatsappLink(t.order.message)}
-          target="_blank"
-          rel="noopener noreferrer"
+        <OpenCartButton
+          aria-haspopup="dialog"
           className="label group inline-flex w-full items-center justify-center gap-3 rounded-full bg-surface py-4 pl-7 pr-6 text-primary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift active:scale-[0.98] sm:w-auto"
         >
           {t.order.cta}
           <RiArrowRightUpLine className="size-4 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
+        </OpenCartButton>
       </Reveal>
     </Section>
   );

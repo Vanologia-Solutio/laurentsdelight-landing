@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { useCart } from "@/components/providers/cart-provider";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { Logo } from "@/components/ui/logo";
@@ -35,6 +36,7 @@ export function SiteHeader() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const { scrollY } = useScroll();
   const { locale, t } = useI18n();
+  const cart = useCart();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 24);
@@ -127,18 +129,30 @@ export function SiteHeader() {
         >
           <LanguageSwitcher className="hidden md:flex" />
           <motion.button
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.96 }}
-            className="label hidden rounded-full bg-foreground px-5 py-3.5 text-background sm:block md:hidden lg:block"
-          >
-            {t.header.orderBox}
-          </motion.button>
-          <motion.button
             whileTap={{ scale: 0.92 }}
-            className="grid size-11 place-items-center rounded-full border border-foreground/20 transition-all hover:border-foreground/50"
-            aria-label={t.header.bag}
+            onClick={cart.open}
+            aria-haspopup="dialog"
+            className="relative grid size-11 place-items-center rounded-full border border-foreground/20 transition-all hover:border-foreground/50"
+            aria-label={
+              cart.count > 0 ? `${t.header.bag} (${cart.count})` : t.header.bag
+            }
           >
             <RiShoppingBagLine className="size-5" />
+            <AnimatePresence>
+              {cart.count > 0 && (
+                <motion.span
+                  key="badge"
+                  aria-hidden
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0 }}
+                  transition={SPRING}
+                  className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-primary px-1 text-[11px] font-bold leading-none text-primary-foreground tabular-nums"
+                >
+                  {cart.count > 99 ? "99+" : cart.count}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.92 }}
@@ -228,17 +242,6 @@ export function SiteHeader() {
                 </span>
                 <LanguageSwitcher onSwitch={() => setIsOpen(false)} />
               </motion.div>
-              <motion.button
-                variants={{
-                  hidden: { opacity: 0, y: 8 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setIsOpen(false)}
-                className="label mt-4 rounded-full bg-foreground px-5 py-4 text-sm text-background sm:hidden"
-              >
-                {t.header.orderBox}
-              </motion.button>
             </motion.div>
           </motion.div>
         )}

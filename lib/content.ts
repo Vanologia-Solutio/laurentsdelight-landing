@@ -14,7 +14,8 @@ import type { Dictionary } from "@/lib/i18n/dictionaries/en";
 export type LinkKey = keyof Dictionary["links"];
 export type NavLink = { href: string; key: LinkKey };
 
-export type FlavorId = "original" | "moringa" | "velvet" | "dark";
+export type FlavorId =
+  "original" | "moringa" | "velvet" | "dark" | "blueberry" | "almond";
 
 /** Text with one value per language. */
 export type Localized = Record<Locale, string>;
@@ -23,7 +24,8 @@ export type Flavor = {
   id: FlavorId;
   /** Product names stay the same in every language. */
   name: string;
-  image: string;
+  /** `null` shows a "photo coming soon" placeholder. */
+  image: string | null;
   number: string;
   /** One-liner shown on the flavor card. */
   short: Localized;
@@ -42,9 +44,8 @@ export type Contact = {
   Icon: RemixiconComponentType;
 };
 
-// TODO: placeholder number — replace with the real WhatsApp business number
-// (country code + number, digits only).
-export const WHATSAPP_NUMBER = "6281234567890";
+// WhatsApp business number (country code + number, digits only).
+export const WHATSAPP_NUMBER = "6287815198003";
 
 export const whatsappLink = (message: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -137,7 +138,60 @@ export const flavors: Flavor[] = [
       id: "Kakao pekat, lelehan dark chocolate, dan sejumput garam laut sebagai penyeimbang.",
     },
   },
+  // TODO: add product photos (e.g. /images/blueberry-brownies.webp) and set
+  // `image` — until then the card shows a placeholder.
+  {
+    id: "blueberry",
+    name: "Blueberry Chocolate Brownies",
+    image: null,
+    number: "05",
+    short: {
+      en: "Fudgy, with a fruity twist.",
+      id: "Fudgy, dengan sentuhan buah.",
+    },
+    description: {
+      en: "Dense, fudgy chocolate brownies studded with juicy blueberries for a bright, tangy finish.",
+      id: "Brownies cokelat yang padat dan fudgy, bertabur blueberry segar untuk sentuhan asam manis.",
+    },
+  },
+  {
+    id: "almond",
+    name: "Almond Chocolate Brownies",
+    image: null,
+    number: "06",
+    short: {
+      en: "Rich, with a satisfying crunch.",
+      id: "Legit, dengan renyah yang bikin nagih.",
+    },
+    description: {
+      en: "Deep chocolate brownies topped with toasted almonds for a nutty, crunchy bite.",
+      id: "Brownies cokelat pekat dengan taburan almond panggang yang gurih dan renyah.",
+    },
+  },
 ];
+
+export const getFlavor = (id: FlavorId) =>
+  flavors.find((flavor) => flavor.id === id);
+
+/** Smallest total quantity (all items combined) that can be checked out. */
+export const MIN_ORDER_QTY = 1;
+/** Highest quantity allowed per item in the cart. */
+export const MAX_ITEM_QTY = 99;
+
+/**
+ * WhatsApp order message. Always in Bahasa Indonesia, whatever the site
+ * language, so the bakery receives orders in one consistent format.
+ */
+export const buildOrderMessage = (
+  lines: { name: string; quantity: number }[],
+) =>
+  [
+    "Hi Laurent's Delight, saya mau order:",
+    "",
+    ...lines.map(({ name, quantity }) => `- ${quantity}x ${name}`),
+    "",
+    "Terima kasih!",
+  ].join("\n");
 
 // TODO: placeholder photo path and contact handles — replace with Fallen's
 // real details (bio and quote live in the dictionaries).
@@ -150,7 +204,7 @@ export const baker = {
     {
       id: "whatsapp",
       label: "WhatsApp",
-      handle: "+62 812 3456 7890",
+      handle: "+62 878 1519 8003",
       Icon: RiWhatsappLine,
     },
     {

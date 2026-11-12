@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
 
+import { CartDrawer } from "@/components/cart/cart-drawer";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { CartProvider } from "@/components/providers/cart-provider";
 import { I18nProvider } from "@/components/providers/i18n-provider";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import { defaultLocale, locales } from "@/lib/i18n/config";
@@ -66,12 +68,15 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
     <html lang={locale} className={`${dmSans.variable} ${fraunces.variable}`}>
       <body className="antialiased">
         <I18nProvider locale={locale} dictionary={dictionary}>
-          <MotionProvider>
-            <SiteHeader />
-            {children}
-            <SiteFooter />
-            <FloatingWhatsApp />
-          </MotionProvider>
+          <CartProvider>
+            <MotionProvider>
+              <SiteHeader />
+              {children}
+              <SiteFooter />
+              <FloatingWhatsApp />
+              <CartDrawer />
+            </MotionProvider>
+          </CartProvider>
         </I18nProvider>
       </body>
     </html>

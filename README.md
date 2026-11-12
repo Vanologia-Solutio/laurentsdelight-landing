@@ -109,6 +109,7 @@ Each section uses `<Section>` (`components/ui/section.tsx`): a full-width shell 
 | Flavors (name, photo, number, descriptions) | `lib/content.ts` → `flavors` |
 | Nav and footer links | `lib/content.ts` → `navLinks`, `footerLinks` |
 | WhatsApp number | `lib/content.ts` → `WHATSAPP_NUMBER` |
+| Cart order message, minimum order, max per item | `lib/content.ts` → `buildOrderMessage`, `MIN_ORDER_QTY`, `MAX_ITEM_QTY` |
 | Baker contacts and photo | `lib/content.ts` → `baker` |
 | Footer phone / email / Instagram | `components/layout/site-footer.tsx` |
 | Gallery photos | `components/sections/gallery.tsx` → `photos` |
@@ -117,7 +118,7 @@ Each section uses `<Section>` (`components/ui/section.tsx`): a full-width shell 
 
 ## Before launch
 
-- [ ] Replace the placeholder **WhatsApp number** (`WHATSAPP_NUMBER` in `lib/content.ts`).
+- [x] Replace the placeholder **WhatsApp number** (`WHATSAPP_NUMBER` in `lib/content.ts`).
 - [ ] Replace the placeholder **footer phone and email** and the Instagram link (`site-footer.tsx`).
 - [ ] Add the baker's **real bio, quote, photo and contact handles** (`baker` in `lib/content.ts` and the dictionaries).
 - [ ] Have a fluent speaker **review the Bahasa Indonesia copy** (`id.ts`, `lib/legal/*`).

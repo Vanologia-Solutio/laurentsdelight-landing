@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 
 import Link from "next/link";
 
+import { useCart } from "@/components/providers/cart-provider";
 import { useI18n } from "@/components/providers/i18n-provider";
 import { whatsappLink } from "@/lib/content";
 import { EASE_OUT } from "@/lib/motion";
@@ -21,6 +22,7 @@ export function FloatingWhatsApp() {
   const rootRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const { t } = useI18n();
+  const cart = useCart();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const visible = latest > 240;
@@ -82,12 +84,29 @@ export function FloatingWhatsApp() {
                   </div>
                 </div>
                 <ul className="p-1.5">
+                  {/* Orders go through the cart so they arrive itemized. */}
+                  <motion.li
+                    initial={{ opacity: 0, x: 8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05, ease: EASE_OUT }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowMenu(false);
+                        cart.open();
+                      }}
+                      className="block w-full rounded-xl px-3.5 py-3 text-left text-sm text-foreground transition-all hover:bg-whatsapp/12 hover:text-whatsapp-dark"
+                    >
+                      {t.whatsapp.orderLabel}
+                    </button>
+                  </motion.li>
                   {t.whatsapp.quickMessages.map((item, i) => (
                     <motion.li
                       key={item.label}
                       initial={{ opacity: 0, x: 8 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 + i * 0.04, ease: EASE_OUT }}
+                      transition={{ delay: 0.09 + i * 0.04, ease: EASE_OUT }}
                     >
                       <Link
                         href={whatsappLink(item.message)}
