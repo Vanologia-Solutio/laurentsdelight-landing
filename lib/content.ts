@@ -17,6 +17,8 @@ export type NavLink = { href: string; key: LinkKey };
 export type FlavorId =
   "original" | "moringa" | "velvet" | "dark" | "blueberry" | "almond";
 
+export type FlavorCategory = keyof Dictionary["flavors"]["categories"];
+
 /** Text with one value per language. */
 export type Localized = Record<Locale, string>;
 
@@ -24,6 +26,7 @@ export type Flavor = {
   id: FlavorId;
   /** Product names stay the same in every language. */
   name: string;
+  category: FlavorCategory;
   /** `null` shows a "photo coming soon" placeholder. */
   image: string | null;
   number: string;
@@ -95,6 +98,7 @@ export const flavors: Flavor[] = [
   {
     id: "original",
     name: "Classic Original",
+    category: "cookies",
     image: "/images/original.webp",
     number: "01",
     short: {
@@ -109,6 +113,7 @@ export const flavors: Flavor[] = [
   {
     id: "moringa",
     name: "Moringa Cream Cheese",
+    category: "cookies",
     image: "/images/moringa.webp",
     number: "02",
     short: {
@@ -123,6 +128,7 @@ export const flavors: Flavor[] = [
   {
     id: "velvet",
     name: "Red Velvet Cream Cheese",
+    category: "cookies",
     image: "/images/red-velvet.webp",
     number: "03",
     short: {
@@ -137,6 +143,7 @@ export const flavors: Flavor[] = [
   {
     id: "dark",
     name: "Dark Choco Sea Salt",
+    category: "cookies",
     image: "/images/dark-choco.webp",
     number: "04",
     short: {
@@ -151,6 +158,7 @@ export const flavors: Flavor[] = [
   {
     id: "blueberry",
     name: "Blueberry Chocolate Brownies",
+    category: "cakesBrownies",
     image: "/images/blueberry-choco.webp",
     number: "05",
     short: {
@@ -165,6 +173,7 @@ export const flavors: Flavor[] = [
   {
     id: "almond",
     name: "Almond Chocolate Brownies",
+    category: "cakesBrownies",
     image: "/images/almond-choco.webp",
     number: "06",
     short: {

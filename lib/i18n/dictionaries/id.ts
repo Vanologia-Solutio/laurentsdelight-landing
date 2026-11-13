@@ -47,6 +47,10 @@ const id = {
     accent: "favoritmu.",
     description: "Tidak ada jawaban yang salah. Hanya beragam jenis kelezatan.",
     photoSoon: "foto segera hadir",
+    categories: {
+      cookies: "cookies",
+      cakesBrownies: "kue & brownies",
+    },
   },
   gallery: {
     eyebrow: "dari oven kami ke feed-mu",

@@ -45,6 +45,10 @@ const en = {
     accent: "delight.",
     description: "No wrong answers. Just different kinds of wonderful.",
     photoSoon: "photo coming soon",
+    categories: {
+      cookies: "cookies",
+      cakesBrownies: "cake & brownies",
+    },
   },
   gallery: {
     eyebrow: "from our oven to your feed",

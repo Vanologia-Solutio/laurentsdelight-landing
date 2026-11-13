@@ -28,6 +28,7 @@ export async function Flavors() {
               flavor={flavor}
               locale={locale}
               photoSoon={t.flavors.photoSoon}
+              categoryLabel={t.flavors.categories[flavor.category]}
             />
           </StaggerItem>
         ))}
